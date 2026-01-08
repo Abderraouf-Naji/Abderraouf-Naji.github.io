@@ -2,48 +2,729 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Naji Abderraouf – PhD Student</title>
-
-  <!-- STRUCTURED DATA FOR GOOGLE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naji Abderraouf – PhD Researcher in LLMs & Agentic Systems</title>
+  
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Naji Abderraouf",
-    "jobTitle": "PhD Student",
+    "jobTitle": "PhD Researcher",
     "affiliation": {
       "@type": "Organization",
-      "name": "ENET’Com / Computer Engineering, National School of Electronics and Telecommunications"
+      "name": "ENET'Com - National School of Electronics and Telecommunications",
+      "url": "https://enetcom.u-sfax.tn/"
     },
-    "description": "PhD student working on Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), agentic reasoning systems, and LLM-driven Complex Event Processing.",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "ENET'Com"
+    },
+    "description": "PhD researcher specializing in Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), agentic reasoning systems, and LLM-driven Complex Event Processing for real-time applications.",
+    "url": "https://naji-abderraouf.github.io",
     "image": "https://avatars.githubusercontent.com/u/171984396?v=4",
     "sameAs": [
       "https://scholar.google.fr/citations?user=P9O6xtwAAAAJ&hl=fr",
       "https://www.linkedin.com/in/naji-abderraouf-a3a367309/",
-      "https://www.researchgate.net/profile/Naji-Abderraouf"
+      "https://www.researchgate.net/profile/Naji-Abderraouf",
+      "https://github.com/naji-abderraouf"
+    ],
+    "knowsAbout": [
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "Agentic AI Systems",
+      "Complex Event Processing",
+      "Machine Learning"
     ]
   }
   </script>
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #7c3aed;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --accent: #0ea5e9;
+      --transition: all 0.3s ease;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --border-radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 40px 0;
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: var(--gray);
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: 0;
+      left: 0;
+      transition: var(--transition);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 80px;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      justify-self: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .hero-content h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tag {
+      background-color: var(--gray-light);
+      color: var(--dark);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .tag.primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--gray-light);
+      color: var(--dark);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* About */
+    .about-content {
+      font-size: 1.1rem;
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+    }
+
+    /* Research */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .research-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+    }
+
+    .research-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .research-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .research-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .research-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* Publications */
+    .publications-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .publication-item {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--primary);
+      transition: var(--transition);
+    }
+
+    .publication-item:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .publication-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .publication-meta {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .publication-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .publication-links a {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Contact */
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .contact-item {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .contact-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .contact-item p {
+      color: var(--gray);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 40px 0 20px;
+      border-top: 1px solid var(--gray-light);
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .profile-img {
+        max-width: 300px;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-content h2 {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 0;
+      }
+      
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Naji Abderraouf</h1>
-  <h2>PhD Student</h2>
+  <div class="container">
+    <header>
+      <div class="logo">NA</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <p>
-    PhD student focusing on <strong>Large Language Models (LLMs)</strong>,
-    <strong>Retrieval-Augmented Generation (RAG)</strong>,
-    <strong>Agentic Systems</strong>, and
-    <strong>LLM-driven Complex Event Processing</strong>
-    for real-time, data-intensive applications.
-  </p>
+    <main>
+      <section class="hero">
+        <img src="https://avatars.githubusercontent.com/u/171984396?v=4" alt="Naji Abderraouf" class="profile-img">
+        <div class="hero-content">
+          <h1>Naji Abderraouf</h1>
+          <h2>PhD Researcher in LLMs & Agentic Systems</h2>
+          
+          <div class="tag-list">
+            <span class="tag primary">Large Language Models</span>
+            <span class="tag">Retrieval-Augmented Generation</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">Complex Event Processing</span>
+          </div>
+          
+          <p>
+            I'm a PhD student at ENET'Com, specializing in cutting-edge AI research with a focus on 
+            enhancing Large Language Models through Retrieval-Augmented Generation (RAG), building 
+            reasoning-capable agentic systems, and developing LLM-driven Complex Event Processing 
+            frameworks for real-time, data-intensive applications.
+          </p>
+          
+          <div class="social-links">
+            <a href="https://scholar.google.fr/citations?user=P9O6xtwAAAAJ&hl=fr" title="Google Scholar">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/naji-abderraouf-a3a367309/" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.researchgate.net/profile/Naji-Abderraouf" title="ResearchGate">
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a href="https://github.com/naji-abderraouf" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:naji.abderraouf@enetcom.u-sfax.tn" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </section>
 
-  <img src="photo.jpg" alt="Naji Abderraouf" width="250">
+      <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <p>
+            I am a passionate AI researcher pursuing my PhD at ENET'Com (National School of Electronics 
+            and Telecommunications) in Computer Engineering. My work sits at the intersection of 
+            Large Language Models, information retrieval, and autonomous systems.
+          </p>
+          <p>
+            My doctoral research focuses on addressing key limitations in current LLM systems, 
+            particularly around factual accuracy, reasoning capabilities, and real-time processing 
+            of streaming data. I explore how retrieval-augmented approaches can enhance LLM knowledge 
+            bases while maintaining computational efficiency.
+          </p>
+          <p>
+            I'm particularly interested in the emerging field of agentic AI, where LLMs are empowered 
+            with planning, memory, and tool-use capabilities to solve complex, multi-step problems 
+            autonomously. My work aims to bridge the gap between static LLM knowledge and dynamic, 
+            real-world information systems.
+          </p>
+        </div>
+      </section>
 
-  <p>
-    <a href="https://scholar.google.fr/citations?user=P9O6xtwAAAAJ&hl=fr">Google Scholar</a> |
-    <a href="https://www.linkedin.com/in/naji-abderraouf-a3a367309/">LinkedIn</a> |
-    <a href="https://www.researchgate.net/profile/Naji-Abderraouf">ResearchGate</a>
-  </p>
+      <section id="research">
+        <h2 class="section-title">Research Focus</h2>
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Large Language Models</h3>
+            <p>
+              Investigating architectural improvements, efficiency optimizations, and novel training 
+              methodologies for transformer-based models with a focus on knowledge retention and 
+              reasoning capabilities.
+            </p>
+          </div>
+          
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>RAG Systems</h3>
+            <p>
+              Developing advanced Retrieval-Augmented Generation frameworks that dynamically integrate 
+              external knowledge sources with LLMs to improve factual accuracy and reduce hallucination.
+            </p>
+          </div>
+          
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>Agentic AI</h3>
+            <p>
+              Building autonomous agent systems with planning, memory, and tool-use capabilities 
+              that can solve complex, multi-step problems through reasoning and interaction with 
+              external environments.
+            </p>
+          </div>
+          
+          <div class="research-card">
+            <div class="research-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>LLM-driven CEP</h3>
+            <p>
+              Creating novel Complex Event Processing architectures powered by LLMs for real-time 
+              pattern recognition, anomaly detection, and decision-making in high-velocity data streams.
+            </p>
+          </div>
+        </div>
+      </section>
+<!--
+      <section id="publications">
+        <h2 class="section-title">Selected Publications</h2>
+        <div class="publications-list">
+          <div class="publication-item">
+            <h3 class="publication-title">Enhancing Factual Accuracy in LLMs through Dynamic Retrieval Augmentation</h3>
+            <div class="publication-meta">
+              <span>2024</span>
+              <span>Journal of Artificial Intelligence Research</span>
+            </div>
+            <p>
+              Proposing a novel adaptive retrieval mechanism that dynamically balances between 
+              parametric knowledge and external information based on query complexity and 
+              confidence metrics.
+            </p>
+            <div class="publication-links">
+              <a href="#">PDF</a>
+              <a href="#">Cite</a>
+              <a href="#">Code</a>
+            </div>
+          </div>
+          
+          <div class="publication-item">
+            <h3 class="publication-title">Agentic Planning with LLMs: A Hierarchical Reasoning Framework</h3>
+            <div class="publication-meta">
+              <span>2023</span>
+              <span>NeurIPS Workshop on Agent Learning in Open-Endedness</span>
+            </div>
+            <p>
+              Introducing a hierarchical planning architecture that enables LLM-based agents to 
+              decompose complex tasks into executable subtasks with feedback-driven refinement.
+            </p>
+            <div class="publication-links">
+              <a href="#">PDF</a>
+              <a href="#">Cite</a>
+              <a href="#">Code</a>
+            </div>
+          </div>
+          
+          <div class="publication-item">
+            <h3 class="publication-title">Real-time Event Processing with LLM-based Pattern Recognition</h3>
+            <div class="publication-meta">
+              <span>2023</span>
+              <span>International Conference on Complex Systems</span>
+            </div>
+            <p>
+              Developing a hybrid CEP architecture that combines traditional event processing 
+              with LLM-based semantic pattern recognition for improved adaptability in dynamic 
+              environments.
+            </p>
+            <div class="publication-links">
+              <a href="#">PDF</a>
+              <a href="#">Cite</a>
+            </div>
+          </div>
+        </div>
+      </section>-->
+
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <h3>Institution</h3>
+            <p>ENET'Com / Computer Engineering</p>
+            <p>National School of Electronics and Telecommunications</p>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>naji.abderraouf@enetcom.u-sfax.tn</p>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Location</h3>
+            <p>Sfax, Tunisia</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://scholar.google.fr/citations?user=P9O6xtwAAAAJ&hl=fr">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/naji-abderraouf-a3a367309/">LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Naji-Abderraouf">ResearchGate</a>
+        <a href="https://github.com/naji-abderraouf">GitHub</a>
+      </div>
+      <p>© 2024 Naji Abderraouf. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add active class to current section in navigation
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav a');
+      
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollY >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Publication links placeholder functionality
+    document.querySelectorAll('.publication-links a').forEach(link => {
+      if (link.getAttribute('href') === '#') {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          alert('This is a demo website. In a real implementation, these links would connect to actual resources.');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
