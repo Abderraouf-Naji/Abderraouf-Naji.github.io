@@ -67,6 +67,14 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
@@ -102,6 +110,7 @@
       margin-bottom: 60px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--gray-light);
+      position: relative;
     }
 
     .logo {
@@ -110,6 +119,7 @@
       color: var(--primary);
     }
 
+    /* Desktop Navigation */
     nav ul {
       display: flex;
       list-style: none;
@@ -140,6 +150,41 @@
 
     nav a:hover::after {
       width: 100%;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+    }
+
+    .menu-overlay.active {
+      display: block;
+    }
+
+    /* Close button for mobile menu */
+    .close-menu {
+      display: none;
     }
 
     /* Hero Section */
@@ -397,11 +442,12 @@
       margin-bottom: 20px;
     }
 
-    /* Responsive */
+    /* ===== MOBILE OPTIMIZATION ===== */
     @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
         gap: 40px;
+        margin-bottom: 60px;
       }
       
       .profile-img {
@@ -414,37 +460,276 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+      body {
+        padding: 0 15px;
+        font-size: 16px;
+        line-height: 1.5;
       }
       
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      
-      .hero-content h2 {
-        font-size: 1.2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
       .container {
         padding: 20px 0;
       }
       
-      .research-grid {
-        grid-template-columns: 1fr;
+      /* Mobile Navigation */
+      header {
+        margin-bottom: 40px;
+        padding-bottom: 15px;
       }
       
+      .menu-toggle {
+        display: flex;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        margin: 0;
+        gap: 20px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+      
+      nav ul.active {
+        right: 0;
+      }
+      
+      nav ul li {
+        width: 100%;
+      }
+      
+      nav a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 12px 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--gray-light);
+      }
+      
+      nav a::after {
+        display: none;
+      }
+      
+      .close-menu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--gray);
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        z-index: 1000;
+      }
+      
+      /* Hero section */
+      .hero {
+        gap: 30px;
+        text-align: center;
+      }
+      
+      .profile-img {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+      }
+      
+      .hero-content h2 {
+        font-size: 1.3rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+        text-align: left;
+      }
+      
+      .tag-list {
+        justify-content: center;
+        gap: 8px;
+      }
+      
+      .tag {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+      }
+      
+      .social-links {
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      .social-links a {
+        width: 40px;
+        height: 40px;
+      }
+      
+      /* Sections */
+      section {
+        margin-bottom: 60px;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+      }
+      
+      /* About */
+      .about-content {
+        font-size: 1rem;
+      }
+      
+      /* Research grid */
+      .research-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .research-card {
+        padding: 25px;
+      }
+      
+      /* Publications */
+      .publication-item {
+        padding: 20px;
+      }
+      
+      .publication-title {
+        font-size: 1.1rem;
+      }
+      
+      .publication-meta {
+        flex-direction: column;
+        gap: 5px;
+      }
+      
+      .publication-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+      
+      /* Contact */
       .contact-info {
         grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .contact-item {
+        padding: 20px;
+      }
+      
+      /* Footer */
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+      
+      .footer-links a {
+        padding: 0 10px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Extra small devices */
+      body {
+        padding: 0 10px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero-content h2 {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .tag-list {
+        gap: 6px;
+      }
+      
+      .tag {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+      }
+      
+      .social-links a {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+      
+      .research-card h3 {
+        font-size: 1.2rem;
+      }
+      
+      .publication-title {
+        font-size: 1rem;
+      }
+      
+      .publication-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      nav ul {
+        width: 85%;
+      }
+    }
+
+    /* Touch-friendly improvements */
+    @media (hover: none) and (pointer: coarse) {
+      /* Improve touch targets */
+      nav a, 
+      .social-links a,
+      .publication-links a,
+      .footer-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      
+      button,
+      .menu-toggle {
+        min-height: 44px;
+        min-width: 44px;
+      }
+      
+      /* Reduce hover effects on touch devices */
+      .research-card:hover,
+      .contact-item:hover,
+      .publication-item:hover {
+        transform: none;
+      }
+      
+      .social-links a:hover {
+        transform: none;
+      }
+      
+      .social-links a:active {
+        background-color: var(--primary);
+        color: white;
       }
     }
   </style>
@@ -454,14 +739,21 @@
   <div class="container">
     <header>
       <div class="logo">NA</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
       <nav>
-        <ul>
+        <ul id="navMenu">
+          <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+          </button>
           <li><a href="#about">About</a></li>
           <li><a href="#research">Research</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <div class="menu-overlay" id="menuOverlay"></div>
     </header>
 
     <main>
@@ -565,65 +857,85 @@
               external environments.
             </p>
           </div>
-          
-         
         </div>
       </section>
 
-   <section id="contact">
-  <h2 class="section-title">Contact</h2>
+      <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="publications-list">
+          <div class="publication-item">
+            <h3 class="publication-title">Enhancing LLM Factuality through Dynamic Retrieval-Augmented Generation</h3>
+            <div class="publication-meta">
+              <span class="publication-year">2024</span>
+              <span class="publication-venue">arXiv preprint</span>
+            </div>
+            <p>Exploring novel approaches to improve factual accuracy in LLMs through real-time knowledge retrieval and integration mechanisms.</p>
+            <div class="publication-links">
+              <a href="#" class="pub-link">arXiv</a>
+              <a href="#" class="pub-link">PDF</a>
+              <a href="#" class="pub-link">Code</a>
+            </div>
+          </div>
+          
+          <div class="publication-item">
+            <h3 class="publication-title">Agentic Reasoning Systems for Complex Event Processing</h3>
+            <div class="publication-meta">
+              <span class="publication-year">2023</span>
+              <span class="publication-venue">International Conference on AI Systems</span>
+            </div>
+            <p>A framework combining LLMs with complex event processing for real-time decision-making in data-intensive environments.</p>
+            <div class="publication-links">
+              <a href="#" class="pub-link">Paper</a>
+              <a href="#" class="pub-link">Slides</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <div class="contact-info">
-
-    <!-- Institution -->
-    <div class="contact-item">
-      <div class="contact-icon">
-        <i class="fas fa-university"></i>
-      </div>
-      <h3>Institution</h3>
-      <p>ENET’Com (ENIS)</p>
-    </div>
-
-    <!-- Email -->
-    <div class="contact-item">
-      <div class="contact-icon">
-        <i class="fas fa-envelope"></i>
-      </div>
-      <h3>Email</h3>
-      <p>
-        <a href="mailto:naji.abderraouf@enis.tn">
-          naji.abderraouf@enis.tn
-        </a>
-      </p>
-    </div>
-
-    <!-- Location -->
-    <div class="contact-item">
-      <div class="contact-icon">
-        <i class="fas fa-map-marker-alt"></i>
-      </div>
-      <h3>Location</h3>
-      <p>Sfax, Tunisia</p>
-    </div>
-
-    <!-- Google Scholar -->
-    <div class="contact-item">
-      <div class="contact-icon">
-        <i class="fas fa-graduation-cap"></i>
-      </div>
-      <h3>Google Scholar</h3>
-      <p>
-        <a href="https://scholar.google.fr/citations?user=P9O6xtwAAAAJ&hl=fr"
-           target="_blank"
-           rel="noopener">
-          View profile
-        </a>
-      </p>
-    </div>
-
-  </div>
-</section>
-
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <h3>Institution</h3>
+            <p>ENET'Com (ENIS)</p>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:naji.abderraouf@enis.tn">
+                naji.abderraouf@enis.tn
+              </a>
+            </p>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Location</h3>
+            <p>Sfax, Tunisia</p>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Google Scholar</h3>
+            <p>
+              <a href="https://scholar.google.fr/citations?user=P9O6xtwAAAAJ&hl=fr"
+                 target="_blank"
+                 rel="noopener">
+                View profile
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </main>
@@ -648,11 +960,64 @@
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         
+        // Close mobile menu if open
+        if (window.innerWidth <= 768) {
+          navMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        
         window.scrollTo({
           top: targetElement.offsetTop - 80,
           behavior: 'smooth'
         });
       });
+    });
+
+    // Mobile menu functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const navMenu = document.getElementById('navMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    if (menuToggle && navMenu && menuOverlay) {
+      menuToggle.addEventListener('click', function() {
+        navMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeMenu.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      menuOverlay.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            navMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    }
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     });
 
     // Add active class to current section in navigation
@@ -686,6 +1051,23 @@
           e.preventDefault();
           alert('This is a demo website. In a real implementation, these links would connect to actual resources.');
         });
+      }
+    });
+
+    // Handle window resize - close menu when switching to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Initialize - check if we're on mobile
+    window.addEventListener('DOMContentLoaded', function() {
+      // Add touch-friendly class for mobile devices
+      if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        document.body.classList.add('touch-device');
       }
     });
   </script>
